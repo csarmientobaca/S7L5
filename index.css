@@ -1,0 +1,7 @@
+.coverAl {
+    z-index: 1;
+}
+
+.coverAl>img {
+    border-radius: 20px;
+}
