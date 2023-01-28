@@ -2,6 +2,7 @@ const all = "https://striveschool-api.herokuapp.com/api/deezer/search?q="
 const monkey = "https://striveschool-api.herokuapp.com/api/deezer/search?q=Arctic%20Monkeys"
 const sheep = "https://striveschool-api.herokuapp.com/api/deezer/search?q=sheep%20go%20to%20heaven%20goats%20go%20to%20hell"
 
+let siteAllSongs = []
 
 // fetch ARTIC MONKEYS------>>>>>>>>>>>>>>>
 // qui si puo fare invece di inserire manualmente le querys, di monkey and sheep metendo query dentro
@@ -23,6 +24,7 @@ const loadData = async () => {
 
         for (let i = 0; i < 4; i++) {
             // console.log(data.data[i].title)
+            siteAllSongs.push(data.data[i])
             selectOutput.innerHTML +=
                 `            
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -38,14 +40,22 @@ const loadData = async () => {
 
         }
         console.log("***********")
+
         const selectOutput2 = document.querySelector(".coverAl")
+        siteAllSongs.push(data2.data[0])
+
         selectOutput2.innerHTML += `
         <img class="img-fluid shadow"
                             src="${data2.data[0].artist.picture}"
                             alt="sheep">`
 
-    }
+        // order array all the arrays
+        siteAllSongs.sort((a, b) => a.rank - b.rank);
 
+        for (let i = 0; i < siteAllSongs.length; i++) {
+            console.log(siteAllSongs[i])
+        }
+    }
     catch (err) {
         console.error(err)
     }
@@ -59,20 +69,21 @@ loadData()
 
 
 
-// two last exercises*****
-console.log(">>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<")
+// // two last exercises*****
+// console.log(">>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<")
 
-const loadAll = async () => {
-    try {
-        const res = await fetch(all)
-        console.log(res.ok)
-        const data = await res.json()
-        console.log(data.data)
+// const loadAll = async () => {
+//     try {
+//         const res = await fetch(all)
+//         console.log(res.ok)
+//         const data = await res.json()
+//         console.log(data.data)
 
-    } catch (error) {
-        console.error(error)
-    }
+//     } catch (error) {
+//         console.error(error)
+//     }
 
 
 
-}
+// }
+
