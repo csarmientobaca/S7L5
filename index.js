@@ -1,8 +1,11 @@
+const all = "https://striveschool-api.herokuapp.com/api/deezer/search?q="
 const monkey = "https://striveschool-api.herokuapp.com/api/deezer/search?q=Arctic%20Monkeys"
 const sheep = "https://striveschool-api.herokuapp.com/api/deezer/search?q=sheep%20go%20to%20heaven%20goats%20go%20to%20hell"
 
 
 // fetch ARTIC MONKEYS------>>>>>>>>>>>>>>>
+// qui si puo fare invece di inserire manualmente le querys, di monkey and sheep metendo query dentro
+// di async e usare ${ dentro di fetch}
 const loadData = async () => {
     try {
         // MONKEY
@@ -52,3 +55,24 @@ const loadData = async () => {
 loadData()
 
 // <<<<<<<<<<<<<<<<------fetch ARTIC MONKEYS
+
+
+
+
+// two last exercises*****
+console.log(">>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<")
+
+const loadAll = async () => {
+    try {
+        const res = await fetch(all)
+        console.log(res.ok)
+        const data = await res.json()
+        console.log(data.data)
+
+    } catch (error) {
+        console.error(error)
+    }
+
+
+
+}
