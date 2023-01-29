@@ -1,6 +1,28 @@
-const all = "https://striveschool-api.herokuapp.com/api/deezer/search?q="
 const monkey = "https://striveschool-api.herokuapp.com/api/deezer/search?q=Arctic%20Monkeys"
 const sheep = "https://striveschool-api.herokuapp.com/api/deezer/search?q=sheep%20go%20to%20heaven%20goats%20go%20to%20hell"
+const songsOrder = document.getElementById("ul-songs")
+
+const orderRankListener = document.getElementById("orderRank").addEventListener("click", orderR)
+
+document.getElementById("changeDisplay").style.display = "none"
+
+function orderR() {
+    for (let i = 0; i < siteAllSongs.length; i++) {
+
+        songsOrder.innerHTML +=
+
+
+            `
+            <li class="nav-item">
+                <a href="#" class="nav-link active my-1" aria-current="page">${siteAllSongs[i].title}</a>
+            </li>           
+        `
+    }
+    document.getElementById("changeDisplay").style.display = "initial"
+}
+
+
+
 
 let siteAllSongs = []
 
@@ -52,9 +74,8 @@ const loadData = async () => {
         // order array all the arrays
         siteAllSongs.sort((a, b) => a.rank - b.rank);
 
-        for (let i = 0; i < siteAllSongs.length; i++) {
-            console.log(siteAllSongs[i])
-        }
+
+
     }
     catch (err) {
         console.error(err)
