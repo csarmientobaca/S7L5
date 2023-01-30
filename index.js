@@ -4,9 +4,21 @@ const songsOrder = document.getElementById("ul-songs")
 
 const orderRankListener = document.getElementById("orderRank").addEventListener("click", orderR)
 
+const closeRankListener = document.querySelector(".btn-close").addEventListener("click", closeR)
+
+
+
+// alert logic>>>>>><
 document.getElementById("changeDisplay").style.display = "none"
 
+function closeR() {
+    document.getElementById("changeDisplay").style.display = "none"
+
+}
+
 function orderR() {
+    songsOrder.innerHTML = ""
+
     for (let i = 0; i < siteAllSongs.length; i++) {
 
         songsOrder.innerHTML +=
@@ -20,6 +32,7 @@ function orderR() {
     }
     document.getElementById("changeDisplay").style.display = "initial"
 }
+// <<<<<<<<<<<<<alert logic
 
 
 
